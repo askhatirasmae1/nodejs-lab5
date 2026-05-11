@@ -1,0 +1,38 @@
+<%- include('../../partials/header') %>
+
+<h1>Liste des auteurs</h1>
+
+<a href="/auteurs/ajouter" class="btn">Ajouter un auteur</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Nationalité</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% auteurs.forEach(auteur => { %>
+      <tr>
+        <td><%= auteur.id %></td>
+        <td><%= auteur.nom %></td>
+        <td><%= auteur.prenom %></td>
+        <td><%= auteur.nationalite %></td>
+        <td>
+          <a href="/auteurs/<%= auteur.id %>" class="btn-small">Détails</a>
+          <a href="/auteurs/<%= auteur.id %>/modifier" class="btn-small">Modifier</a>
+
+          <form action="/auteurs/<%= auteur.id %>/supprimer" method="POST" class="inline">
+            <button type="submit" onclick="return confirm('Supprimer cet auteur ?')">Supprimer</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('../../partials/footer') %>

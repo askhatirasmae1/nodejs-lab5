@@ -1,0 +1,38 @@
+<%- include('../../partials/header') %>
+
+<h1>Modifier livre</h1>
+
+<form action="/livres/<%= livre.id %>/modifier" method="POST" class="form">
+  <label>Titre</label>
+  <input type="text" name="titre" value="<%= livre.titre %>" required>
+
+  <label>Auteur</label>
+  <select name="auteur_id" required>
+    <% auteurs.forEach(auteur => { %>
+      <option value="<%= auteur.id %>" <%= auteur.id === livre.auteur_id ? 'selected' : '' %>>
+        <%= auteur.prenom %> <%= auteur.nom %>
+      </option>
+    <% }) %>
+  </select>
+
+  <label>Année publication</label>
+  <input type="number" name="annee_publication" value="<%= livre.annee_publication || '' %>">
+
+  <label>Genre</label>
+  <input type="text" name="genre" value="<%= livre.genre || '' %>">
+
+  <label>ISBN</label>
+  <input type="text" name="isbn" value="<%= livre.isbn || '' %>">
+
+  <label>Résumé</label>
+  <textarea name="resume"><%= livre.resume || '' %></textarea>
+
+  <label>
+    <input type="checkbox" name="disponible" <%= livre.disponible ? 'checked' : '' %>>
+    Disponible
+  </label>
+
+  <button type="submit">Modifier</button>
+</form>
+
+<%- include('../../partials/footer') %>

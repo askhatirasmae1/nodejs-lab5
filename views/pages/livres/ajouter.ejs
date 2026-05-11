@@ -1,0 +1,36 @@
+<%- include('../../partials/header') %>
+
+<h1>Ajouter un livre</h1>
+
+<form action="/livres/ajouter" method="POST" class="form">
+  <label>Titre</label>
+  <input type="text" name="titre" required>
+
+  <label>Auteur</label>
+  <select name="auteur_id" required>
+    <% auteurs.forEach(auteur => { %>
+      <option value="<%= auteur.id %>"><%= auteur.prenom %> <%= auteur.nom %></option>
+    <% }) %>
+  </select>
+
+  <label>Année publication</label>
+  <input type="number" name="annee_publication">
+
+  <label>Genre</label>
+  <input type="text" name="genre">
+
+  <label>ISBN</label>
+  <input type="text" name="isbn">
+
+  <label>Résumé</label>
+  <textarea name="resume"></textarea>
+
+  <label>
+    <input type="checkbox" name="disponible" checked>
+    Disponible
+  </label>
+
+  <button type="submit">Ajouter</button>
+</form>
+
+<%- include('../../partials/footer') %>

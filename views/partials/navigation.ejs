@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="/" class="brand">Bibliothèque</a>
+    <a href="/auteurs">Auteurs</a>
+    <a href="/livres">Livres</a>
+    <a href="/auteurs/ajouter">Ajouter auteur</a>
+    <a href="/livres/ajouter">Ajouter livre</a>
+  </div>
+
+  <form action="/livres/recherche" method="GET" class="search-form">
+    <input type="text" name="q" placeholder="Rechercher livre..." value="<%= typeof searchTerm !== 'undefined' ? searchTerm : '' %>">
+    <button type="submit">Rechercher</button>
+  </form>
+</nav>

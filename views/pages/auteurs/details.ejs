@@ -1,0 +1,23 @@
+<%- include('../../partials/header') %>
+
+<div class="card">
+  <h1><%= auteur.prenom %> <%= auteur.nom %></h1>
+
+  <p><strong>Nationalité :</strong> <%= auteur.nationalite %></p>
+  <p><strong>Date naissance :</strong> <span class="format-date"><%= auteur.date_naissance %></span></p>
+  <p><strong>Biographie :</strong> <%= auteur.biographie %></p>
+
+  <a href="/auteurs/<%= auteur.id %>/modifier" class="btn">Modifier</a>
+</div>
+
+<h2>Livres de cet auteur</h2>
+
+<ul>
+  <% livres.forEach(livre => { %>
+    <li>
+      <a href="/livres/<%= livre.id %>"><%= livre.titre %></a>
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('../../partials/footer') %>

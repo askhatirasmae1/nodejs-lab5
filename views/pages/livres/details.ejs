@@ -1,0 +1,16 @@
+<%- include('../../partials/header') %>
+
+<div class="card">
+  <h1><%= livre.titre %></h1>
+
+  <p><strong>Auteur :</strong> <%= livre.auteur_prenom %> <%= livre.auteur_nom %></p>
+  <p><strong>Année :</strong> <%= livre.annee_publication %></p>
+  <p><strong>Genre :</strong> <%= livre.genre %></p>
+  <p><strong>ISBN :</strong> <%= livre.isbn %></p>
+  <p><strong>Disponible :</strong> <%= livre.disponible ? 'Oui' : 'Non' %></p>
+  <p><strong>Résumé :</strong> <%= livre.resume %></p>
+
+  <a href="/livres/<%= livre.id %>/modifier" class="btn">Modifier</a>
+</div>
+
+<%- include('../../partials/footer') %>

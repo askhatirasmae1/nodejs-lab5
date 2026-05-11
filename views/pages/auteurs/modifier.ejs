@@ -1,0 +1,24 @@
+<%- include('../../partials/header') %>
+
+<h1>Modifier auteur</h1>
+
+<form action="/auteurs/<%= auteur.id %>/modifier" method="POST" class="form">
+  <label>Nom</label>
+  <input type="text" name="nom" value="<%= auteur.nom %>" required>
+
+  <label>Prénom</label>
+  <input type="text" name="prenom" value="<%= auteur.prenom %>" required>
+
+  <label>Date naissance</label>
+  <input type="date" name="date_naissance" value="<%= auteur.date_naissance ? auteur.date_naissance.toISOString().split('T')[0] : '' %>">
+
+  <label>Nationalité</label>
+  <input type="text" name="nationalite" value="<%= auteur.nationalite || '' %>">
+
+  <label>Biographie</label>
+  <textarea name="biographie"><%= auteur.biographie || '' %></textarea>
+
+  <button type="submit">Modifier</button>
+</form>
+
+<%- include('../../partials/footer') %>
